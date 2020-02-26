@@ -1,11 +1,17 @@
 {
-	"name": "terraform-doc-opener",
-	"displayName": "terraform-doc-opener",
+	"name": "terraform-documentation-links",
+	"displayName": "Terraform documentation links",
 	"description": "Open Terraform documentation page of resources and data sources",
 	"version": "0.0.1",
+	"publisher": "SteefH",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/SteefH/vscode-external-formatters.git"
+	},
 	"engines": {
 		"vscode": "^1.42.0"
 	},
+	"license": "BSD-3-Clause",
 	"categories": [
 		"Other"
 	],
@@ -20,6 +26,10 @@
 				"title": "Open the Terraform documentation"
 			}
 		]
+	},
+	"galleryBanner": {
+		"color": "#282828",
+		"theme": "dark"
 	},
 	"scripts": {
 		"vscode:prepublish": "yarn run compile",
@@ -41,5 +51,8 @@
 		"mocha": "^7.0.1",
 		"typescript": "^3.7.5",
 		"vscode-test": "^1.3.0"
+	},
+	"dependencies": {
+		"vsce": "^1.73.0"
 	}
 }

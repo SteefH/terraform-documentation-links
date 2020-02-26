@@ -32,10 +32,10 @@ const resourceTypeToProviderAndName: (resourceType: string) => { provider: strin
   (resourceType) => {
     const re = /^(?<provider>[^_]+)_(?<name>.*)$/;
     const m = re.exec(resourceType);
-    if (m) {
-      const { provider = "", name = "" } = m.groups || {};
-      return { provider, name };
-    }
+    if (!m) { return; }
+
+    const { provider = "", name = "" } = m.groups || {};
+    return { provider, name };
   };
 
 const getLineMatchResultUri: (lmr: LineMatchResult) => vscode.Uri | undefined =
