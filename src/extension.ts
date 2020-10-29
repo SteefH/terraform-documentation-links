@@ -77,5 +77,6 @@ const linkProvider: vscode.DocumentLinkProvider = {
 
 export function activate(context: vscode.ExtensionContext) {
   const disposeLinkProvider = vscode.languages.registerDocumentLinkProvider('terraform', linkProvider);
-  context.subscriptions.push(disposeLinkProvider);
+  const tfDisposeLinkProvider = vscode.languages.registerDocumentLinkProvider('tf', linkProvider);
+  context.subscriptions.push(disposeLinkProvider, tfDisposeLinkProvider);
 }
