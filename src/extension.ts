@@ -38,14 +38,23 @@ const resourceTypeToProviderAndName: (resourceType: string) => { provider: strin
     return { provider, name };
   };
 
+const providersNamespace: (provider: string) => string =
+  (provider) => {
+    if (provider === "databricks") { return `databrickslabs/${provider}`; }
+    return `hashicorp/${provider}`
+  };
+
+const dataOrResourceURI: (dataOrResource: TerraformDataOrResource) => string =
+  (dataOrResource) => {
+    if (dataOrResource === "data") { return `${dataOrResource}-sources`; }
+    return `${dataOrResource}s`
+  };
+
 const getLineMatchResultUri: (lmr: LineMatchResult) => vscode.Uri | undefined =
   ({ dataOrResource, resourceType }) => {
     const { provider, name } = resourceTypeToProviderAndName(resourceType) || {};
     if (!provider || !name) { return; }
-    if (provider == 'databricks') {
-      return vscode.Uri.parse(`https://registry.terraform.io/providers/databrickslabs/${provider}/latest/docs/${dataOrResource.charAt(0)}/${name}`);
-    }
-    return vscode.Uri.parse(`https://registry.terraform.io/providers/hashicorp/${provider}latest/docs/${dataOrResource.charAt(0)}/${name}`);
+    return vscode.Uri.parse(`https://registry.terraform.io/providers/${providersNamespace(provider)}/latest/docs/${dataOrResourceURI(dataOrResource)}/${name}`);
   };
 
 function isNotUndefined<T>(v: T | undefined): v is T {
