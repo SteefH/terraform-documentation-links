@@ -2,7 +2,7 @@
 	"name": "terraform-documentation-links",
 	"displayName": "Terraform documentation links",
 	"description": "Open Terraform documentation page of resources and data sources",
-	"version": "0.0.1",
+	"version": "0.0.2",
 	"publisher": "SteefH",
 	"repository": {
 		"type": "git",
