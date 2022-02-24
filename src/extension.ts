@@ -42,7 +42,7 @@ const getLineMatchResultUri: (lmr: LineMatchResult) => vscode.Uri | undefined =
   ({ dataOrResource, resourceType }) => {
     const { provider, name } = resourceTypeToProviderAndName(resourceType) || {};
     if (!provider || !name) { return; }
-    return vscode.Uri.parse(`https://www.terraform.io/docs/providers/${provider}/${dataOrResource.charAt(0)}/${name}.html`);
+    return vscode.Uri.parse(`https://www.terraform.io/docs/providers/${provider}/${dataOrResource.charAt(0)}/${name}`);
   };
 
 function isNotUndefined<T>(v: T | undefined): v is T {
