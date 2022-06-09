@@ -1,5 +1,7 @@
 # terraform-documentation-links
 
+Forked from https://github.com/SteefH/terraform-documentation-links - seems to be abandoned, therefore releasing separately.
+
 This is a simple extension that add links to your editor when editing Terraform source files.
 
 It adds links to resource and data blocks.
